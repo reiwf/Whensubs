@@ -23,14 +23,14 @@ export default function CTASection() {
             お客様満足度の向上と業務効率化を実現
           </p>
           
-          <Link href="/demo">
+          <Link href="/usecase/minpaku">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-block"
             >
-              <Button size="lg" className="px-8 py-4 text-lg rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300">
-                <span className="mr-2">問い合わせ</span>
+              <Button size="lg" className="px-8 py-4 text-lg rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white border-none shadow-lg hover:shadow-xl transition-all duration-300">
+                <span className="mr-2">デモを試す</span>
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </motion.div>

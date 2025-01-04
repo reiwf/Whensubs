@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 // Icons
 import { 
   Brain, 
@@ -24,6 +24,28 @@ interface Feature {
 export default function FeaturesSection() {
   const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    try {
+      const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+      const handleMotionPreference = (event: MediaQueryListEvent | MediaQueryList) => {
+        setReducedMotion(event.matches)
+      }
+
+      // Initial check
+      handleMotionPreference(mediaQuery)
+
+      // Add listener for changes
+      mediaQuery.addEventListener('change', handleMotionPreference)
+
+      return () => {
+        mediaQuery.removeEventListener('change', handleMotionPreference)
+      }
+    } catch (error) {
+      console.error('Error handling motion preference:', error)
+    }
+  }, [])
 
   const features: Feature[] = [
     {
@@ -111,23 +133,20 @@ export default function FeaturesSection() {
                 className="relative group"
                 role="listitem"
               >
-                <div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
-                  style={{ backgroundImage: gradientStyle }}
-                  aria-hidden="true"
-                />
+            
                 <Card className="relative h-full bg-white dark:bg-gray-800 border-0 overflow-hidden group-hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6">
                     <motion.div
-                      className="mb-4"
-                      whileHover={{ scale: 1.05, rotate: 5 }}
+                      className="mb-4 flex-shrink-0"
+                      whileHover={reducedMotion ? {} : { scale: 1.0, rotate: 5 }}
+                      whileTap={reducedMotion ? {} : { scale: 0.95, rotate: -5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
                       <div 
                         className={`w-12 h-12 rounded-full bg-gradient-to-r ${feature.gradient} flex items-center justify-center`}
                         aria-hidden="true"
                       >
-                        <feature.icon className="w-6 h-6 text-white" />
+                        <feature.icon className="w-6 h-6 text-white" aria-hidden="true"  />
                       </div>
                     </motion.div>
                     <h3 className="text-l font-normal mb-2 text-gray-900 dark:text-white">

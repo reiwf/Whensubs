@@ -78,21 +78,21 @@ const PlatformCard = memo(function PlatformCard({
       role="article"
       aria-labelledby={`platform-${index}-name`}
     >
-      <div 
-        className="absolute -inset-0.5 bg-gradient-to-r opacity-75 group-hover:opacity-100 transition duration-300 blur-xl group-hover:blur-2xl rounded-2xl"
+      <div
+        className="absolute inset-0 bg-gradient-to-r rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
         style={{
           backgroundImage: `linear-gradient(to right, ${platform.gradient.split(' ')[1]}, ${platform.gradient.split(' ')[3]})`
         }}
         aria-hidden="true"
       />
-      <Card className="relative h-full bg-white dark:bg-gray-800 border-0 shadow-lg group-hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden">
+      <Card className="relative h-full bg-white dark:bg-gray-800 border-0 overflow-hidden group-hover:shadow-lg transition-all duration-300">
         <CardContent className="p-6 sm:p-8">
           <div className="relative z-10 h-full flex flex-col">
             <motion.div
               className="mb-6 relative"
-              whileHover={reducedMotion ? {} : { scale: 1.1, rotate: 5 }}
+              whileHover={reducedMotion ? {} : { scale: 1.05, rotate: 10 }}
               whileTap={reducedMotion ? {} : { scale: 0.95, rotate: -5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${platform.gradient} p-0.5`}>
                 <div className="w-full h-full bg-white dark:bg-gray-800 rounded-2xl flex items-center justify-center">

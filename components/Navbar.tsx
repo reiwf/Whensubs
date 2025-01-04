@@ -75,7 +75,7 @@ export default function Navbar() {
     { href: '#features', label: '特徴', isSection: true },
     { href: '#benefits', label: 'メリット', isSection: true },
     { href: '#platforms', label: 'プラットフォーム', isSection: true },
-    { href: '#contact', label: 'お問い合わせ', isSection: true }
+    { href: '/usecase/minpaku', label: 'デモを試す' }
   ], [])
 
   useEffect(() => {

@@ -44,7 +44,7 @@ export default function Footer() {
             variants={fadeInUpVariants}
             custom={0}
           >
-            <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
+            <h3 className="text-xl font-semibold mb-4 text-gray-700 dark:text-blue-400">
               Whensubs
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
