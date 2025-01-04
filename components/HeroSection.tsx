@@ -30,7 +30,7 @@ export default function HeroSection() {
         >
           
           <h1 className="text-3xl sm:text-6xl font-normal mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-500">
-            WhensubsでAIの力を解放          
+          <span className="text-gray-700">Whensubs</span>でAIの力を解放          
           </h1>
           <p className="text-xl sm:text-4xl text-gray-600 dark:text-gray-300 mb-6">
             AI チャットの可能性を探る
@@ -39,9 +39,9 @@ export default function HeroSection() {
             いつでもどこでも
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Link href="/demo">
+            <Link href="/usecase/minpaku">
               <Button size="lg" className="px-8 py-4 text-lg rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white border-none shadow-lg hover:shadow-xl transition-all duration-300">
-                問い合わせ
+                デモを試す
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

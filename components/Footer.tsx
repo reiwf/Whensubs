@@ -40,10 +40,7 @@ export default function Footer() {
           >
             <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">お問い合わせ</h3>
             <p className="text-gray-600 dark:text-gray-400">
-              〒100-0001<br />
-              東京都千代田区千代田1-1<br />
-              電話: 03-1234-5678<br />
-              メール: info@whensubs.jp
+              AI チャットボットで
             </p>
           </motion.div>
         </div>

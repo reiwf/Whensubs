@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Zen_Antique_Soft } from 'next/font/google'
 import './globals.css'
+import { Toaster } from 'react-hot-toast';
 
 const zenAntiqueSoft = Zen_Antique_Soft({ 
   weight: '400',
@@ -10,7 +11,7 @@ const zenAntiqueSoft = Zen_Antique_Soft({
 
 export const metadata: Metadata = {
   title: 'Whensubs AI',
-  description: 'AI-Powered Hospitality Concierge',
+  description: 'AI-Powered',
 }
 
 export default function RootLayout({
@@ -20,7 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={zenAntiqueSoft.className}>{children}</body>
+      <body className={zenAntiqueSoft.className}>        
+        {children}
+        <Toaster position="bottom-right" reverseOrder={false} toastOptions={{
+            className: 'toast-container', 
+          }}/>
+        </body>
     </html>
   )
 }

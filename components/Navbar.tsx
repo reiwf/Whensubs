@@ -12,6 +12,7 @@ import {
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { scrollToSection } from '@/utils/scrollToSection'
+import Image from 'next/image'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -36,9 +37,20 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-2xl font-normal text-blue-600 dark:text-blue-400">
+        <div className="flex items-center">
+          <Link href="/">
+            <Image 
+              src="/favicon.ico" 
+              alt="Whensubs Favicon" 
+              width={45} 
+              height={45} 
+              className="mr-2" 
+            />
+          </Link>
+          <Link href="/" className="text-2xl font-normal text-gray-700 dark:text-blue-400">
             Whensubs
           </Link>
+        </div>
           <div className="hidden md:flex space-x-4 items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

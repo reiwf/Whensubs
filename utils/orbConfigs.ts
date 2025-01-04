@@ -10,8 +10,8 @@ export interface OrbConfig {
 const getRandomAnimation = () => ({
   x: Array.from({ length: 3 }, () => Math.random() * 200 * (Math.random() > 0.5 ? 1 : -1)),
   y: Array.from({ length: 3 }, () => Math.random() * 300 * (Math.random() > 0.5 ? 1 : -1)),
-  scale: [1, Math.random() * 0.5 + 1, 1], // Random scaling between 1 and 1.5
-  rotate: [0, Math.random() * 360, 0], // Random rotation
+  scale: [1, Math.random() * 0.5 + 1, 1],
+  rotate: [0, Math.random() * 360, 0],
 });
 
 export const orbConfigs: OrbConfig[] = [
@@ -20,7 +20,7 @@ export const orbConfigs: OrbConfig[] = [
     className: "absolute right-[10%] top-[15%] w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-500/40 to-purple-500/30 blur-[60px]",
     animate: getRandomAnimation(),
     transition: {
-      duration: Math.random() * 3 + 5, // Random duration between 20 and 30 seconds
+      duration: Math.random() * 3 + 5,
       repeat: Infinity,
       repeatType: "reverse",
       ease: "easeInOut",
@@ -69,7 +69,7 @@ export const orbConfigs: OrbConfig[] = [
       repeat: Infinity,
       repeatType: "reverse",
       ease: "easeInOut",
-      delay: 1,
+      delay: 0.4,
     },
   },
 ];
