@@ -2,10 +2,16 @@
 
 import { motion } from 'framer-motion'
 import { orbConfigs } from '@/utils/orbConfigs'
+import { BaseProps } from '@/utils/componentConstants'
 
-export default function BackgroundOrbs() {
+interface BackgroundOrbsProps extends BaseProps {}
+
+export default function BackgroundOrbs({ className = '' }: BackgroundOrbsProps) {
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-[1]">
+    <div 
+      className={`fixed inset-0 overflow-hidden pointer-events-none z-[1] ${className}`}
+      aria-hidden="true"
+    >
       {orbConfigs.map((config, index) => (
         <motion.div
           key={index}
@@ -17,4 +23,3 @@ export default function BackgroundOrbs() {
     </div>
   )
 }
-
