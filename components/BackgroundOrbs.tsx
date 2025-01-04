@@ -4,9 +4,7 @@ import { motion } from 'framer-motion'
 import { orbConfigs } from '@/utils/orbConfigs'
 import { BaseProps } from '@/utils/componentConstants'
 
-interface BackgroundOrbsProps extends BaseProps {}
-
-export default function BackgroundOrbs({ className = '' }: BackgroundOrbsProps) {
+export default function BackgroundOrbs({ className = '' }: BaseProps) {
   return (
     <div 
       className={`fixed inset-0 overflow-hidden pointer-events-none z-[1] ${className}`}

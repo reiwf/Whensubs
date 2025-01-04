@@ -1,14 +1,14 @@
 'use client'
 
 import { motion, useInView, Variants } from 'framer-motion'
-import { Globe, MessageSquare, Smartphone, Send, CheckCircle2 } from 'lucide-react'
+import { Globe, MessageSquare, Smartphone, Send, CheckCircle2, LucideIcon } from 'lucide-react'
 import { useRef, memo, useEffect, useState } from 'react'
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from '../components/ui/card'
 import { ErrorBoundary } from 'react-error-boundary'
 
 interface Platform {
   name: string
-  icon: any // LucideIcon type
+  icon: LucideIcon
   description: string
   features: string[]
   gradient: string
