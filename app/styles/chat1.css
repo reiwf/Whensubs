@@ -54,7 +54,7 @@
 #n8n-chat .chat-window{
   display: flex;
   width: 450px;
-  height: 650px;
+  height: 800px;
   max-width: 450px;
   max-height: 800px;
   border: var(--chat--window--border, 1px solid var(--chat--color-light-shade-100));

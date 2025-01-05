@@ -10,12 +10,16 @@ import {
   UtensilsCrossed, Bed, Tv, Snowflake, Users, Waves, LandPlot, 
   BedDouble, Ratio, CookingPot, UserRound, MapPinHouse, BusFront 
 } from 'lucide-react'
+import { MinpakuSection } from './MinpakuSection'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { useState, useEffect, useRef } from 'react'
 import { toast } from 'react-hot-toast'
 import '@n8n/chat/style.css'
 import '../../styles/chat1.css'
+import { MinpakuBenefitsSection } from './MinpakuBenefitsSection'
+import { MinpakuIntelligentSystemSection } from './MinpakuIntelligentSystemSection'
+
 
 interface Amenity {
   icon: React.ReactNode
@@ -114,7 +118,7 @@ export default function KyotoMachiya() {
               i18n: {
                 en: {
                   title: '',
-                  subtitle: "明子のAI👋24時間365日対応いたします。",
+                  subtitle: "明子のエージェントです👋24時間365日対応いたします。",
                   footer: '',
                   getStarted: 'ニューチャット',
                   inputPlaceholder: 'こちらに入力...',
@@ -149,12 +153,27 @@ export default function KyotoMachiya() {
     })
   }
 
+
   return (
     <div className="min-h-screen bg-stone-50">
       <Navbar />
       <main className="container mx-auto px-4 py-32">
-        {/* Header Section */}
-        <div className="mb-8">
+        {/* Minpaku AI Section */}
+        <MinpakuSection />
+        <MinpakuBenefitsSection/>
+        <MinpakuIntelligentSystemSection/>
+
+        <div className="flex items-center justify-center my-12 mt-24">
+        <div className="h-px bg-gray-200 dark:bg-gray-700 w-3/4"></div>
+        <span className="mx-4 text-gray-400 dark:text-gray-500">DEMO</span> {/* Or an icon */}
+        <div className="h-px bg-gray-200 dark:bg-gray-700 w-3/4"></div>
+        </div>
+       
+        {/* Main Section */}
+        <div id="main-section" className="mt-24 mb-8">     
+        <div className="mb-4"> 
+        <Badge variant="gray" className="">When民泊デモ</Badge>            
+          </div>     
           <h1 className="text-3xl md:text-4xl font-normal text-stone-800 mb-2">
             京都の伝統的な町家 - 庭園と露天風呂付き
           </h1>
@@ -173,7 +192,7 @@ export default function KyotoMachiya() {
           {/* Main Image Card */}
           <Card className="md:col-span-2">
             <CardContent className="p-0">
-              <div className="relative w-full h-[400px]">
+              <div className="relative border-container w-full h-[400px]">
                 <Image 
                   src="/Whensubs_demo_minpaku.jpg" 
                   alt="風情ある日本庭園と縁側のある町家" 
@@ -208,12 +227,12 @@ export default function KyotoMachiya() {
                 <p className="text-2xl font-normal text-amber-600 mb-2">¥85,000 / 泊</p>
                 {!chatVisible && (
                   <Button 
-                    size="lg" 
-                    className="bg-amber-600 hover:bg-amber-700 text-white w-full"
+                    size="lg"                     
+                    className="bg-amber-600 rounded-xl hover:bg-amber-700 text-white w-full"
                     onClick={handleOpenChat}
                     disabled={isLoading}
                   >
-                    {isLoading ? 'Loading...' : 'AIとチャット'}
+                    {isLoading ? 'Loading...' : 'When民泊とチャット'}
                   </Button>
                 )}
               </CardContent>
@@ -230,6 +249,7 @@ export default function KyotoMachiya() {
           </div>
         </div>
 
+        
         {/* Tabs Section */}
         <Tabs defaultValue="space" className="mb-12">
           <TabsList className="grid w-full grid-cols-4 bg-stone-100">
@@ -403,11 +423,11 @@ export default function KyotoMachiya() {
           {!chatVisible && (
             <Button 
               size="lg" 
-              className="bg-amber-600 hover:bg-amber-700 text-white"
+              className="bg-amber-600 rounded-xl hover:bg-amber-700 text-white"
               onClick={handleOpenChat}
               disabled={isLoading}
             >
-              {isLoading ? 'Loading...' : 'AIとチャット'}
+              {isLoading ? 'Loading...' : 'When民泊とチャット'}
             </Button>
           )}
         </section>
