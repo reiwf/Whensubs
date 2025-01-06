@@ -1,7 +1,7 @@
 import { Badge } from 'components/ui/badge'
 
 
-export const MinpakuIntelligentSystemSection = () => {
+export const MinpakuSikumi = () => {
   return (
     <section className="relative px-12 py-20 bg-white border-container">
       <div className="container mx-auto">

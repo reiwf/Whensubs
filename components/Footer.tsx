@@ -44,7 +44,7 @@ export default function Footer() {
             variants={fadeInUpVariants}
             custom={0}
           >
-            <h3 className="text-xl font-semibold mb-4 text-gray-700 dark:text-blue-400">
+            <h3 className="text-xl f mb-4 text-gray-700 dark:text-blue-400">
               Whensubs
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
@@ -57,7 +57,7 @@ export default function Footer() {
             variants={fadeInUpVariants}
             custom={0.1}
           >
-            <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">
+            <h3 className="text-lg mb-4 text-gray-700 dark:text-gray-200">
               リンク
             </h3>
             <nav aria-label="Footer navigation">
@@ -82,11 +82,11 @@ export default function Footer() {
             variants={fadeInUpVariants}
             custom={0.2}
           >
-            <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">
+            <h3 className="text-lg mb-4 text-gray-700 dark:text-gray-200">
               お問い合わせ
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              AI チャットボットで
+              Contact@Whensubs.com
             </p>
           </motion.div>
         </div>

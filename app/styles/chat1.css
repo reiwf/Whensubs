@@ -25,9 +25,9 @@
 --chat--header--border-bottom: none;
 --chat--header--border-bottom: none;
 --chat--header--border-bottom: none;
---chat--heading--font-size: 0.8em;
+--chat--heading--font-size: 0.7em;
 --chat--header--color: var(--chat--color-light);
---chat--subtitle--font-size: inherit;
+--chat--subtitle--font-size: 0.8em;
 --chat--subtitle--line-height: 1.6;
 
   --chat--textarea-height: 100px;
@@ -53,8 +53,8 @@
 
 #n8n-chat .chat-window{
   display: flex;
-  width: 450px;
-  height: 800px;
+  width: 430px;
+  height: 650px;
   max-width: 450px;
   max-height: 800px;
   border: var(--chat--window--border, 1px solid var(--chat--color-light-shade-100));

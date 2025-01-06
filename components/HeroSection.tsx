@@ -1,23 +1,24 @@
 'use client'
 
-import { motion, useScroll, useTransform, Variants } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { useRef, useEffect, useState, memo } from 'react'
+import { memo } from 'react'
 import { Button } from './ui/button'
-import { fadeInUpVariants as defaultFadeInUpVariants, glowEffectVariants as defaultGlowEffectVariants } from '@/utils/componentConstants'
+import { Badge } from './ui/badge'
 import { ErrorBoundary } from 'react-error-boundary'
 
 // Memoized button component for better performance
 const DemoButton = memo(function DemoButton() {
   return (
     <Link 
-      href="/usecase/minpaku" 
+      href="/usecase/minpaku"            
       aria-label="デモを試す - 民泊用AIチャットボットを体験"
     >
       <Button 
         size="lg" 
-        className="px-8 py-4 text-lg rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white border-none shadow-lg hover:shadow-xl transition-all duration-300"
+        variant="gray" 
+        className="rounded-xl shadow-md px-8 w-full sm:w-auto "
         tabIndex={0}
       >
         デモを試す
@@ -44,112 +45,41 @@ function ErrorFallback({ error, resetErrorBoundary }: { error: Error; resetError
 }
 
 function HeroSectionContent() {
-  const [fadeInUpVariants, setFadeInUpVariants] = useState<Variants>(defaultFadeInUpVariants)
-  const [glowEffectVariants, setGlowEffectVariants] = useState<Variants>(defaultGlowEffectVariants)
-
-  // Handle reduced motion preference
-  useEffect(() => {
-    try {
-      const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-      const handleMotionPreference = (event: MediaQueryListEvent | MediaQueryList) => {
-        if (event.matches) {
-          setFadeInUpVariants({
-            ...defaultFadeInUpVariants,
-            visible: {
-              ...defaultFadeInUpVariants.visible,
-              transition: { duration: 0 }
-            }
-          })
-          setGlowEffectVariants({
-            ...defaultGlowEffectVariants,
-            animate: {
-              ...defaultGlowEffectVariants.animate,
-              transition: { duration: 0 }
-            }
-          })
-        }
-      }
-
-      // Initial check
-      handleMotionPreference(mediaQuery)
-
-      // Add listener for changes
-      mediaQuery.addEventListener('change', handleMotionPreference)
-
-      // Cleanup
-      return () => {
-        mediaQuery.removeEventListener('change', handleMotionPreference)
-      }
-    } catch (error) {
-      console.error('Error handling motion preference:', error)
-    }
-  }, [])
-
-  const ref = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
 
   return (
-    <section 
-      ref={ref} 
-      className="relative h-screen flex items-center justify-center py-10 sm:py-20 overflow-hidden"
+    <section
+      className="relative px-12 py-24 bg-white mb-12 border-container hero-section"
       role="banner"
       aria-labelledby="hero-heading"
     >
-      <div className="container mx-auto px-4 relative z-1">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center h-full">
         <motion.div
-          className="text-center max-w-3xl mx-auto"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUpVariants}
-          style={{ y, opacity }}
+          className="p-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          <h1 
-            id="hero-heading"
-            className="text-3xl sm:text-6xl font-normal mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-500"
-          >
-            <span className="text-gray-700">Whensubs</span>でAIの力を解放          
-          </h1>
-          <p className="text-xl sm:text-4xl text-gray-600 dark:text-gray-300 mb-6" role="doc-subtitle">
-            AI チャットの可能性を探る
-          </p>
-          <p className="text-l sm:text-2xl text-gray-600 dark:text-gray-300 mb-8">
-            いつでもどこでも
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <DemoButton />
-          </div>
-        </motion.div>
-        
-        <motion.div 
-          className="mt-16 relative"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { delay: 0.5, duration: 0.8 }
-            }
-          }}
+      <div className="mb-4">
+        <Badge variant="gray">Whensubs</Badge>
+        <h1
+          id="hero-heading"
+          className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-700 dark:text-gray-100 leading-tight tracking-tight mt-3"
         >
-          <div className="relative mx-auto max-w-4xl">
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur-xl"
-              variants={glowEffectVariants}
-              animate="animate"
-              aria-hidden="true"
-            />
-          </div>
-        </motion.div>
+          AIエージェントの力を解放
+        </h1>
       </div>
-    </section>
+      <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+      反復作業から解放され、本当に重要な仕事に集中
+      </p>
+      <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+        いつでもどこでも
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4">
+        <DemoButton />
+      </div>
+    </motion.div>
+  </div>
+</section>
   )
 }
 

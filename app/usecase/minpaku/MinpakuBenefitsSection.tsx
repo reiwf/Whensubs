@@ -50,6 +50,7 @@ export function MinpakuBenefitsSection() {
   return (
     <section className="py-12 px-3">
       <div className="container mx-auto px-4">
+        
       <Badge variant="gray" className="mb-4">When民泊を選ぶ理由</Badge>
         <h2 className="text-3xl font-normal text-stone-800 mt-3 mb-3">
         同じような質問に何度も答えるのに...

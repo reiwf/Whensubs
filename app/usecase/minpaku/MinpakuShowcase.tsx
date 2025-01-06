@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const images = [
-  { src: '/chatshowcase1.png', alt: 'Image 1' },
-  { src: '/chatshowcase2.png', alt: 'Image 2' },
-  { src: '/chatshowcase3.png', alt: 'Image 3' },
+  { src: '/chatshowcase1.png', alt: 'Image 1', width: 360, height: 600 },
+  { src: '/chatshowcase2.png', alt: 'Image 2', width: 360, height: 600 },
+  { src: '/chatshowcase3.png', alt: 'Image 3', width: 360, height: 600 },
 ];
 
 const DynamicImageGrid = () => {
@@ -32,14 +32,16 @@ const DynamicImageGrid = () => {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {images.map((image, index) => (
+          <div key={index} className="image">
             <Image
-              key={index}
               src={image.src}
               alt={image.alt}
-              className="image"
+              width={image.width}
+              height={image.height}
             />
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
       </div>
   );
 };

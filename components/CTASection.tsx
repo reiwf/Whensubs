@@ -11,14 +11,15 @@ export default function CTASection() {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section ref={ref} className="py-20 sm:py-32 text-gray-800 relative z-10">
-      <div className="container mx-auto px-4 text-center">
+    <section ref={ref} className="relative px-12 py-4 bg-white border-container">
+      <div className="container mx-auto px-4 text-center pt-36 pb-36">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-xl sm:text-4xl font-normal mb-6 text-gray-800">AIチャットボットを導入しませんか？</h2>
+          <h2 className="text-xl sm:text-4xl font-normal mb-6 text-stone-700">
+            AIチャットボットを導入しませんか？</h2>
           <p className="text-m sm:text-2xl mb-8 max-w-2xl mx-auto text-gray-600">
             お客様満足度の向上と業務効率化を実現
           </p>
@@ -29,7 +30,11 @@ export default function CTASection() {
               whileTap={{ scale: 0.95 }}
               className="inline-block"
             >
-              <Button size="lg" className="px-8 py-4 text-lg rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white border-none shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button 
+              size="lg" 
+              variant="gray" 
+              className="rounded-xl shadow-md px-8 w-full sm:w-auto ">
+                
                 <span className="mr-2">デモを試す</span>
                 <ArrowRight className="w-5 h-5" />
               </Button>

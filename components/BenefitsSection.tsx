@@ -1,119 +1,75 @@
 'use client'
 
-import { motion, useInView, Variants } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { Zap, DollarSign, Clock, Shield } from 'lucide-react'
-import { useRef, memo, useEffect, useState } from 'react'
+import { useRef, memo } from 'react'
 import { Card, CardContent } from "@/components/ui/card"
-
+import { Badge } from "@/components/ui/badge"
 
 interface Benefit {
   title: string
   description: string
   icon: React.ElementType
-  gradient: string
 }
 
 const benefits: Benefit[] = [
   {
     title: "顧客体験の向上",
     description: "スピーディかつ的確な回答により、お客様のストレスを軽減。問い合わせから解決までの時間を大幅に短縮し、満足度アップに貢献します。",
-    icon: Zap,
-    gradient: "from-yellow-400 to-orange-500"
+    icon: Zap
   },
   {
     title: "コスト効率の高い運用",
     description: "オペレーターの負担を軽減し、人件費や教育コストを削減。スタッフは複雑な課題対応や戦略的タスクに集中することができます。",
-    icon: DollarSign,
-    gradient: "from-green-400 to-emerald-500"
+    icon: DollarSign
   },
   {
     title: "24時間体制のサポート",
     description: "AIチャットボットなら時間や休日を問わず稼働。国内・海外の顧客にも同じ品質のサポートを提供できます。",
-    icon: Clock,
-    gradient: "from-blue-400 to-cyan-500"
+    icon: Clock
   },
   {
     title: "一貫したサービス品質",
     description: "ヒューマンエラーのリスクを減らし、常に安定した対応が可能。どの部署・店舗でも同水準のサポートを実現します。",
-    icon: Shield,
-    gradient: "from-indigo-400 to-purple-500"
+    icon: Shield
   }
 ]
 
-// Memoized benefit card component for better performance
 const BenefitCard = memo(function BenefitCard({ 
   benefit, 
   index, 
-  isInView,
-  reducedMotion
+  isInView
 }: { 
   benefit: Benefit
   index: number
   isInView: boolean
-  reducedMotion: boolean
 }) {
-  const variants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: reducedMotion ? 0 : 0.5, 
-        delay: reducedMotion ? 0 : index * 0.1 
-      }
-    }
-  }
-
   return (
     <motion.div
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={variants}
-      className="relative group"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.3, delay: index * 0.1 }}
+      className="relative"
       role="article"
       aria-labelledby={`benefit-${index}-title`}
     >
-      <div
-        className="absolute inset-0 bg-gradient-to-r rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
-        style={{
-          backgroundImage: `linear-gradient(to right, ${benefit.gradient.split(' ')[1]}, ${benefit.gradient.split(' ')[3]})`
-        }}
-        aria-hidden="true"
-      />
-      <Card className="relative h-full bg-white dark:bg-gray-800 border-0 overflow-hidden group-hover:shadow-lg transition-all duration-300">
-        <CardContent className="p-6 flex items-start space-x-4">
-          <motion.div
-            className="flex-shrink-0"
-            whileHover={reducedMotion ? {} : { scale: 1.05, rotate: 10 }}
-            whileTap={reducedMotion ? {} : { scale: 0.95, rotate: -5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${benefit.gradient} flex items-center justify-center`}>              
-              <benefit.icon className="w-6 h-6 text-white" aria-hidden="true" /> 
+      <Card className="hover:shadow-lg transition-shadow h-full">
+        <CardContent className="p-6 ">
+          <div className="flex flex-col ">
+            <div className="mb-4">
+              <benefit.icon className="w-8 h-8 text-amber-600" />
             </div>
-          </motion.div>
-          <div className="flex-grow">
             <h3 
               id={`benefit-${index}-title`}
-              className="text-l font-normal mb-2 text-gray-900 dark:text-white"
+              className="text-xl font-normal text-stone-700 mb-2"
             >
               {benefit.title}
             </h3>
-            <p className="text-m text-gray-600 dark:text-gray-300">
+            <p className="text-stone-600">
               {benefit.description}
             </p>
           </div>
         </CardContent>
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r"
-          style={{
-            backgroundImage: `linear-gradient(to right, ${benefit.gradient.split(' ')[1]}, ${benefit.gradient.split(' ')[3]})`
-          }}
-          initial={{ scaleX: 0 }}
-          whileHover={reducedMotion ? {} : { scaleX: 1 }}
-          transition={{ duration: 0.3 }}
-          aria-hidden="true"
-        />
       </Card>
     </motion.div>
   )
@@ -123,55 +79,27 @@ const BenefitCard = memo(function BenefitCard({
 function BenefitsSectionContent() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
-  const [reducedMotion, setReducedMotion] = useState(false)
-
-  useEffect(() => {
-    try {
-      const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-      const handleMotionPreference = (event: MediaQueryListEvent | MediaQueryList) => {
-        setReducedMotion(event.matches)
-      }
-
-      // Initial check
-      handleMotionPreference(mediaQuery)
-
-      // Add listener for changes
-      mediaQuery.addEventListener('change', handleMotionPreference)
-
-      return () => {
-        mediaQuery.removeEventListener('change', handleMotionPreference)
-      }
-    } catch (error) {
-      console.error('Error handling motion preference:', error)
-    }
-  }, [])
 
   return (
     <section 
-      ref={ref} 
-      className="py-20 sm:py-32 relative z-10"
+      ref={ref}
+      className="px-12 py-20 border-container bg-white"
       aria-labelledby="benefits-title"
     >
-      <div className="container mx-auto px-4 max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: reducedMotion ? 0 : 0.8 }}
-          className="text-center mb-16"
+      <div className="container mx-auto px-4 py-4">
+        <Badge variant="gray" className="mb-4">導入のメリット</Badge>
+        <h2 
+          id="benefits-title"
+          className="text-3xl font-normal text-stone-700 mt-3 mb-3"
         >
-          <h2 
-            id="benefits-title"
-            className="text-2xl sm:text-4xl font-normal mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600"
-          >
-            AIチャットボット導入のメリット
-          </h2>
-          <p className="text-l sm:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            ビジネスと顧客体験を次のレベルへ
-          </p>
-        </motion.div>
+          AIエージェント導入でビジネスを効率化
+        </h2>
+        <p className="text-lg sm:text-xl text-stone-600 leading-relaxed mb-8">
+          顧客体験と業務効率を同時に向上
+        </p>
 
         <div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto z-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 "
           role="list"
           aria-label="AIチャットボット導入のメリット一覧"
         >
@@ -181,7 +109,6 @@ function BenefitsSectionContent() {
               benefit={benefit}
               index={index}
               isInView={isInView}
-              reducedMotion={reducedMotion}
             />
           ))}
         </div>

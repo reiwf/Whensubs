@@ -18,7 +18,7 @@ import { toast } from 'react-hot-toast'
 import '@n8n/chat/style.css'
 import '../../styles/chat1.css'
 import { MinpakuBenefitsSection } from './MinpakuBenefitsSection'
-import { MinpakuIntelligentSystemSection } from './MinpakuIntelligentSystemSection'
+import { MinpakuSikumi} from './MinpakuSikumi'
 
 
 interface Amenity {
@@ -161,7 +161,7 @@ export default function KyotoMachiya() {
         {/* Minpaku AI Section */}
         <MinpakuSection />
         <MinpakuBenefitsSection/>
-        <MinpakuIntelligentSystemSection/>
+        <MinpakuSikumi/>
 
         <div className="flex items-center justify-center my-12 mt-24">
         <div className="h-px bg-gray-200 dark:bg-gray-700 w-3/4"></div>
