@@ -159,10 +159,10 @@ function MultiPlatformSectionContent() {
   return (
     <section 
       ref={ref} 
-      className="py-12 sm:py-16 relative z-10"
+      className="relative px-4 sm:px-12 py-12 sm:py-24 z-10"
       aria-labelledby="platform-section-title"
     >
-      <div className="container mx-auto px-12 relative z-1">
+      <div className="container mx-auto px-4 sm:px-12 relative z-1">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -172,7 +172,7 @@ function MultiPlatformSectionContent() {
           <Badge variant="gray" className="mb-4">マルチプラットフォーム対応</Badge>
           <h2 
             id="platform-section-title"
-            className="text-3xl font-normal text-stone-700 mt-3 mb-3"
+            className="text-2xl sm:text-4xl font-normal text-stone-700 mt-3 mb-3"
           >
              複数のプラットフォームに導入可能
           </h2>

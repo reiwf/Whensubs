@@ -48,7 +48,7 @@ function HeroSectionContent() {
 
   return (
     <section
-      className="relative px-12 py-24 bg-white mb-12 border-container hero-section"
+      className="relative px-4 sm:px-12 py-12 sm:py-24 bg-white mb-12 border-container hero-section"
       role="banner"
       aria-labelledby="hero-heading"
     >
@@ -63,13 +63,14 @@ function HeroSectionContent() {
         <Badge variant="gray">Whensubs</Badge>
         <h1
           id="hero-heading"
-          className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-700 dark:text-gray-100 leading-tight tracking-tight mt-3"
+          className="text-2xl sm:text-4xl md:text-5xl font-normal text-gray-700 dark:text-gray-100 leading-tight tracking-tight mt-3"
         >
-          AIエージェントの力を解放
+          
+          あらゆるカスタマー対応業務をAI エージェントの導入<br/>でスマートに解決<br/>月9,900~
         </h1>
       </div>
       <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
-      反復作業から解放され、本当に重要な仕事に集中
+      AIエージェントの力を解放<br/>本当に重要な仕事に集中
       </p>
       <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
         いつでもどこでも

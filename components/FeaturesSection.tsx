@@ -63,10 +63,10 @@ export default function FeaturesSection() {
     <section 
       ref={ref} 
       id="features" 
-      className="relative py-12 px-12 overflow-hidden z-10"
+      className="relative px-4 sm:px-12 py-12 sm:py-24 overflow-hidden z-10"
       aria-labelledby="features-heading"
     >
-      <div className="container mx-auto px-4 relative z-1">
+      <div className="container mx-auto px-4 sm:px-12 relative z-1">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -76,7 +76,7 @@ export default function FeaturesSection() {
           <Badge variant="gray" className="mb-4">AIエージェントの特徴</Badge>
           <h2 
             id="features-heading"
-            className="text-3xl font-normal text-stone-700 mt-3 mb-3"
+            className="text-2xl sm:text-4xl font-normal text-stone-700 mt-3 mb-3"
           >
             従業員扱いで依頼したい業務を
           </h2>

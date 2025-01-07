@@ -140,7 +140,7 @@ html {
   }
 }
 .hero-section {
-  background-size: 70% 130%; /* Image occupies 50% width and 100% height */
+  background-size: 70% 110%; /* Image occupies 50% width and 100% height */
   background-position: right center; /* Aligns image to the left */
   background-repeat: no-repeat;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)),

@@ -83,14 +83,14 @@ function BenefitsSectionContent() {
   return (
     <section 
       ref={ref}
-      className="px-12 py-20 border-container bg-white"
+      className="relative px-4 sm:px-12 py-12 sm:py-24 border-container bg-white"
       aria-labelledby="benefits-title"
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 sm:px-12 ">
         <Badge variant="gray" className="mb-4">導入のメリット</Badge>
         <h2 
           id="benefits-title"
-          className="text-3xl font-normal text-stone-700 mt-3 mb-3"
+          className="text-2xl sm:text-4xl font-normal text-stone-700 mt-3 mb-3"
         >
           AIエージェント導入でビジネスを効率化
         </h2>
