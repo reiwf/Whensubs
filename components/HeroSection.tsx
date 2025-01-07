@@ -66,7 +66,7 @@ function HeroSectionContent() {
           className="text-2xl sm:text-4xl md:text-5xl font-normal text-gray-700 dark:text-gray-100 leading-tight tracking-tight mt-3"
         >
           
-          あらゆるカスタマー対応業務をAI エージェントの導入<br/>でスマートに解決<br/>月9,900~
+          あらゆるカスタマー対応業務をAI エージェントの導入<br/>でスマートに解決<br/>
         </h1>
       </div>
       <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
