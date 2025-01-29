@@ -19,6 +19,7 @@ import { LocationHostInfo } from './LocationHostInfo'
 import MinpakuTabs from './MinpakuTabs'
 import FAQSection from './FAQSection'
 import ReviewsSection from './ReviewsSection'
+import { AmenityList } from './AmenityList' 
 
 
 interface Amenity {
@@ -57,16 +58,6 @@ const REVIEWS: Review[] = [
   }
 ]
 
-export const AmenityList = ({ items }: { items: Amenity[] }) => (
-  <ul className="space-y-2">
-    {items.map((item, index) => (
-      <li key={index} className="flex items-center">
-        <span className="mr-2">{item.icon}</span>
-        {item.text}
-      </li>
-    ))}
-  </ul>
-)
 
 
 export default function KyotoMachiya() {

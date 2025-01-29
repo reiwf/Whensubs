@@ -4,11 +4,7 @@ interface Amenity {
   text: string
 }
 
-interface AmenityListProps {
-  items: Amenity[]
-}
-
-export const AmenityList = ({ items }: AmenityListProps) => (
+export const AmenityList = ({ items }: { items: Amenity[] }) => (
   <ul className="space-y-2">
     {items.map((item, index) => (
       <li key={index} className="flex items-center">
