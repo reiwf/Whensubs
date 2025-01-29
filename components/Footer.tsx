@@ -21,10 +21,10 @@ interface FooterLink {
 
 const footerLinks: FooterLink[] = [
   { href: '/usecase/minpaku', label: 'ユースケース' },
-  { href: '#features', label: '特徴', isSection: true },
-  { href: '#benefits', label: 'メリット', isSection: true },
-  { href: '#platforms', label: 'プラットフォーム', isSection: true },
-  { href: '#contact', label: 'お問い合わせ', isSection: true }
+  { href: '/#features', label: '特徴', isSection: true },
+  { href: '/#benefits', label: 'メリット', isSection: true },
+  { href: '/#platforms', label: 'プラットフォーム', isSection: true },
+  { href: '/#contact', label: 'お問い合わせ', isSection: true }
 ]
 
 export default function Footer() {
@@ -66,7 +66,13 @@ export default function Footer() {
                   <li key={href}>
                     <Link 
                       href={href}
-                      onClick={isSection ? scrollToSection : undefined}
+                      onClick={(e) => {
+                        if (isSection) {
+                          if (window.location.pathname === '/') {
+                            scrollToSection(e);
+                          }
+                        }
+                      }}
                       className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm"
                     >
                       {label}

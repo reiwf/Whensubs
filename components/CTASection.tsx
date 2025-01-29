@@ -24,7 +24,7 @@ export default function CTASection() {
             お客様満足度の向上と業務効率化を実現
           </p>
           
-          <Link href="/usecase/minpaku">
+          <Link href="https://chat.whensubs.com">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

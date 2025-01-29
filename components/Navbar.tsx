@@ -51,7 +51,13 @@ const MobileMenu = ({ items }: { items: NavItem[] }) => (
         <Link 
           key={item.href} 
           href={item.href} 
-          onClick={(e) => item.isSection ? scrollToSection(e, 80) : undefined}
+          onClick={(e) => {
+            if (item.isSection) {
+              if (window.location.pathname === '/') {
+                scrollToSection(e, 80);
+              }
+            }
+          }}
           className="w-full"
         >
           <Button 
@@ -72,10 +78,10 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
 
   const navItems = useMemo<NavItem[]>(() => [
-    { href: '#features', label: '特徴', isSection: true },
-    { href: '#benefits', label: 'メリット', isSection: true },
-    { href: '#platforms', label: 'プラットフォーム', isSection: true },
-    { href: '/usecase/minpaku', label: 'デモを試す' }
+    { href: '/#features', label: '特徴', isSection: true },
+    { href: '/#benefits', label: 'メリット', isSection: true },
+    { href: '/#platforms', label: 'プラットフォーム', isSection: true },
+    { href: "https://chat.whensubs.com" , label: 'デモを試す' }
   ], [])
 
   useEffect(() => {
@@ -143,7 +149,13 @@ export default function Navbar() {
               <Link 
                 key={item.href} 
                 href={item.href} 
-                onClick={(e) => item.isSection ? scrollToSection(e, 80) : undefined}
+                onClick={(e) => {
+                  if (item.isSection) {
+                    if (window.location.pathname === '/') {
+                      scrollToSection(e, 80);
+                    }
+                  }
+                }}
                 className="w-full"
               >
                 <Button 

@@ -12,7 +12,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 const DemoButton = memo(function DemoButton() {
   return (
     <Link 
-      href="/usecase/minpaku"            
+      href="https://chat.whensubs.com"            
       aria-label="デモを試す - 民泊用AIチャットボットを体験"
     >
       <Button 
