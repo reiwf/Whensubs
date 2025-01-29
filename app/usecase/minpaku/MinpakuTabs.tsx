@@ -7,10 +7,6 @@ import {
   Wifi, Bath, TreePine, Coffee, Tv, Snowflake 
 } from 'lucide-react'
 
-interface Amenity {
-  icon: React.ReactNode
-  text: string
-}
 
 const ROOM_FEATURES = [
   { icon: <Bath className="text-amber-600" />, text: 'モダンなバスルーム（シャワー付き）と別途トイレ' },
