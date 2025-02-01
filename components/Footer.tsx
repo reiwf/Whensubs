@@ -32,7 +32,7 @@ export default function Footer() {
 
   return (
     <footer 
-      className="bg-gray-100 dark:bg-gray-900 py-12"
+      className="bg-transparent py-4"
       role="contentinfo"
       aria-label="Site footer"
     >

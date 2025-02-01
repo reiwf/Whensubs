@@ -143,6 +143,9 @@ export default function Navbar() {
                 <DropdownMenuItem>
                   <Link href="/usecase/minpaku" className="w-full">民泊</Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/usecase/beauty" className="w-full">クリニック</Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             {navItems.map((item) => (
